@@ -1,3 +1,3 @@
 ## Contents
 ### Apache 
-* [Install tomcat on linux](./linux/tomcat-for-linux.md)
+* [Install tomcat on linux](./linux/apache/tomcat-for-linux.md)
