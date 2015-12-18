@@ -1,81 +1,69 @@
-=== Installing Elasticsearch
+## Installing Elasticsearch
 
-* [official document](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
+### Reference
+* [Elasticsearch official document](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
+* [How to install logstash on linux ](./logstash-for-linux.md)
+* [How to install kabana on linux ](./kibana-for-linux.md)
+* [How to install filebeat on linux ](./filebeat.md)
 
-[[deb]]*deb:*
+### Prequisites
+* Jdk version:1.75+
 
-["source","sh",subs="attributes,callouts"]
-----------------------------------------------------------------------
-sudo apt-get install openjdk-7-jre
-curl -L -O https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-{ES-version}.deb
-sudo dpkg -i elasticsearch-{ES-version}.deb
-sudo /etc/init.d/elasticsearch start
-----------------------------------------------------------------------
+### Install Elasticsearch 
+*deb:*
 
-[[rpm]]*rpm:*
+```
+  sudo apt-get install openjdk-7-jre
+  curl -L -O https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-2.1.1.deb
+  sudo dpkg -i elasticsearch-2.1.1.deb
+  sudo /etc/init.d/elasticsearch start
+```
 
-["source","sh",subs="attributes,callouts"]
-----------------------------------------------------------------------
-sudo yum install java-1.7.0-openjdk
-curl -L -O https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-{ES-version}.rpm
-sudo rpm -i elasticsearch-{ES-version}.rpm
-sudo service elasticsearch start
-----------------------------------------------------------------------
+*rpm:*
 
-[[mac]]*mac:*
+```
+  sudo yum install java-1.7.0-openjdk
+  curl -L -O https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-2.1.1.rpm
+  sudo rpm -i elasticsearch-2.1.1.rpm
+  sudo service elasticsearch start
+```
 
-["source","sh",subs="attributes,callouts"]
-----------------------------------------------------------------------
-# install Java, e.g. from: https://www.java.com/en/download/manual.jsp
-curl -L -O https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-{ES-version}.zip
-unzip elasticsearch-{ES-version}.zip
-cd elasticsearch-{ES-version}
-./bin/elasticsearch
-----------------------------------------------------------------------
+*mac:*
 
-[[win]]*win:*
+```
+  # install Java, e.g. from: https://www.java.com/en/download/manual.jsp
+  curl -L -O https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-2.1.1.zip
+  unzip elasticsearch-2.1.1.zip
+  cd elasticsearch-2.1.1
+  ./bin/elasticsearch
+```
+*win:*
 
-. If necessary, download and install the latest version of the Java from https://www.java.com[www.java.com].
-
-. Download the Elasticsearch {ES-version} Windows zip file from the
-https://www.elastic.co/downloads/elasticsearch[downloads page].
+https://www.elastic.co/downloads/elasticsearch [downloads page].
 
 . Extract the contents of the zip file to a directory on your computer, for example, `C:\Program Files`.
 
 . Open a command prompt as an Administrator and navigate to the directory that contains the extracted files, for example:
-+
-["source","sh",subs="attributes,callouts"]
-----------------------------------------------------------------------
-cd C:\Program Files\elasticsearch-{ES-version}
-----------------------------------------------------------------------
-
+```
+  cd C:\Program Files\elasticsearch-2.1.1
+```
 . Run the following command to start Elasticsearch:
-+
-["source","sh",subs="attributes,callouts"]
-----------------------------------------------------------------------
-bin\elasticsearch.bat
-----------------------------------------------------------------------
+```
+  bin\elasticsearch.bat
+```
 
-You can learn more about installing, configuring, and running Elasticsearch in the
-https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html[Elasticsearch Reference].
-
-==== Making Sure Elasticsearch is Up and Running
-
+### Making Sure Elasticsearch is Up and Running
 
 To test that the Elasticsearch daemon is up and running, try sending an HTTP GET
 request on port 9200.
 
-[source,shell]
-----------------------------------------------------------------------
-curl http://127.0.0.1:9200
-----------------------------------------------------------------------
-
+```
+  curl http://127.0.0.1:9200
+```
 On Windows, if you don't have cURL installed, simply point your browser to the URL.
 
 You should see a response similar to this:
-
-[source,shell]
-----------------------------------------------------------------------
+```
 {
   "name" : "Banshee",
   "cluster_name" : "elasticsearch",
@@ -88,3 +76,4 @@ You should see a response similar to this:
   },
   "tagline" : "You Know, for Search"
 }
+```
