@@ -12,7 +12,7 @@
 ### Install Elasticsearch 
 *deb:*
 
-```
+```shell
   sudo apt-get install openjdk-7-jre
   curl -L -O https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-2.1.1.deb
   sudo dpkg -i elasticsearch-2.1.1.deb
@@ -21,7 +21,7 @@
 
 *rpm:*
 
-```
+```shell
   sudo yum install java-1.7.0-openjdk
   curl -L -O https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-2.1.1.rpm
   sudo rpm -i elasticsearch-2.1.1.rpm
@@ -30,7 +30,7 @@
 
 *mac:*
 
-```
+```shell
   # install Java, e.g. from: https://www.java.com/en/download/manual.jsp
   curl -L -O https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-2.1.1.zip
   unzip elasticsearch-2.1.1.zip
@@ -44,11 +44,11 @@ https://www.elastic.co/downloads/elasticsearch [downloads page].
 . Extract the contents of the zip file to a directory on your computer, for example, `C:\Program Files`.
 
 . Open a command prompt as an Administrator and navigate to the directory that contains the extracted files, for example:
-```
+```bat
   cd C:\Program Files\elasticsearch-2.1.1
 ```
 . Run the following command to start Elasticsearch:
-```
+```bat
   bin\elasticsearch.bat
 ```
 
@@ -57,13 +57,13 @@ https://www.elastic.co/downloads/elasticsearch [downloads page].
 To test that the Elasticsearch daemon is up and running, try sending an HTTP GET
 request on port 9200.
 
-```
+```shell
   curl http://127.0.0.1:9200
 ```
 On Windows, if you don't have cURL installed, simply point your browser to the URL.
 
 You should see a response similar to this:
-```
+```yaml
 {
   "name" : "Banshee",
   "cluster_name" : "elasticsearch",
