@@ -55,9 +55,9 @@ http://www.elastic.co/guide/en/kibana/current/index.html[Kibana User Guide].
 ### Loading Kibana Dashboards
 
 ```shell
-	curl -L -O http://download.elastic.co/beats/dashboards/beats-dashboards-{Dashboards-version}.tar.gz
-	tar xzvf beats-dashboards-{Dashboards-version}.tar.gz
-	cd beats-dashboards-{Dashboards-version}/
+	curl -L -O http://download.elastic.co/beats/dashboards/beats-dashboards-1.0.1.tar.gz
+	tar xzvf beats-dashboards-1.0.1.tar.gz
+	cd beats-dashboards-1.0.1/
 	./load.sh
 ```
 
@@ -77,7 +77,7 @@ pattern` error. You must select or create an index pattern to continue. You can
 resolve the error by refreshing the page in the browser and then setting one of
 the predefined index patterns as the default.
 
-image:./images/kibana-created-indexes.png[Kibana configured indexes]
+![Kibana configured indexes](../images/kibana-created-indexes.png)
 
 To open the loaded dashboards, go to the `Dashboard` page and click the
 *Load Saved Dashboard* icon. Select `Packetbeat Dashboard` from the list.

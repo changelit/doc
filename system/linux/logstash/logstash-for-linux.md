@@ -10,7 +10,7 @@
 ### Prequisites
 * Jdk version:1.75+
 
-image:./images/beats-logstash.png[Integration with Logstash]
+[Integration with Logstash](../images/beats-logstash.png)
 
 *deb:*
 
@@ -76,10 +76,19 @@ input {
   }
 }
 
+filter {
+  if [shipper] == "shipper_name" {
+        json {
+                source => "message"
+                target => "new_doc"
+                remove_field => [ "line", "input_type","type","count","message" ]
+             }
+   }
+}
+
 output {
   elasticsearch {
     hosts => "localhost:9200"
-    sniffing => true
     manage_template => false
     index => "%{[@metadata][beat]}-%{+YYYY.MM.dd}"
     document_type => "%{[@metadata][type]}"

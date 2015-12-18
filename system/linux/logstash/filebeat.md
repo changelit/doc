@@ -9,23 +9,23 @@
 *deb:*
 
 ```shell
-  curl -L -O https://download.elastic.co/beats/filebeat/filebeat_{version}_amd64.deb
-  sudo dpkg -i filebeat_{version}_amd64.deb
+  curl -L -O https://download.elastic.co/beats/filebeat/filebeat_1.0.0_amd64.deb
+  sudo dpkg -i filebeat_1.0.0_amd64.deb
 ```
 
 *rpm:*
 
 ```shell
-  curl -L -O https://download.elastic.co/beats/filebeat/filebeat-{version}-x86_64.rpm
-  sudo rpm -vi filebeat-{version}-x86_64.rpm
+  curl -L -O https://download.elastic.co/beats/filebeat/filebeat-1.0.0-x86_64.rpm
+  sudo rpm -vi filebeat-1.0.0-x86_64.rpm
 ```
 
 
 *mac:*
 
 ```shell
-  curl -L -O https://download.elastic.co/beats/filebeat/filebeat-{version}-darwin.tgz
-  tar xzvf filebeat-{version}-darwin.tgz
+  curl -L -O https://download.elastic.co/beats/filebeat/filebeat-1.0.0-darwin.tgz
+  tar xzvf filebeat-1.0.0-darwin.tgz
 ```
 
 *win:*
@@ -83,21 +83,14 @@ filebeat:
 output:
   logstash:
     enabled: true
-    hosts: ["10.168.153.51:5044"]
+    hosts: ["x.x.x.x:5044"]
     loadbalance: true
     index: uat
 
 ############################# Shipper #########################################
 shipper:
-  name: uat-kcic
+  name: {shipper_name}
 
-############################# Logging #########################################
-logging:
-  files:
-    path: /var/log/mybeat
-    name: mybeat
-    rotateeverybytes: 10485760
-    keepfiles: 7
 ```
 
 ### Loading the Index Template in Elasticsearch
@@ -119,7 +112,7 @@ following command:
 *mac:*
 
 ```shell
-  cd filebeat-{version}-darwin
+  cd filebeat-1.0.0-darwin
   curl -XPUT 'http://localhost:9200/_template/filebeat?pretty' -d@filebeat.template.json
 ```
 
