@@ -2,7 +2,7 @@
 
 ### Reference
 * [How to install logstash on linux ](./logstash-for-linux.md)
-* [How to install kabana on linux ](./kibana-for-linux.md)
+* [How to install kibana on linux ](./kibana-for-linux.md)
 * [How to install filebeat on linux ](./filebeat.md)
 * [Logstash official document](https://www.elastic.co/guide/en/logstash/current/index.html)
 
@@ -10,7 +10,7 @@
 ### Prequisites
 * Jdk version:1.75+
 
-[Integration with Logstash](../images/beats-logstash.png)
+![Integration with Logstash](../images/beats-logstash.png)
 
 *deb:*
 

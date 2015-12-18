@@ -4,7 +4,7 @@
 ### Reference
 * [Kibana official document](https://www.elastic.co/guide/en/kibana/current/index.html)
 * [How to install logstash on linux ](./logstash-for-linux.md)
-* [How to install kabana on linux ](./kibana-for-linux.md)
+* [How to install kibana on linux ](./kibana-for-linux.md)
 * [How to install filebeat on linux ](./filebeat.md)
 * [Logstash official document](https://www.elastic.co/guide/en/logstash/current/index.html)
 
