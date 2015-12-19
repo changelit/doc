@@ -116,8 +116,8 @@
 ```
 
 * 修改php配置文件
-> vi /etc/php.ini
 
+> vi /etc/php.ini
 ```shell
 max_input_time = 600
 max_execution_time = 300

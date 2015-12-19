@@ -34,6 +34,7 @@
 ### 标准用户目录结构
 
 * 创建运行用户与目录
+
 ```
 	useradd -M -s /sbin/nologin zabbix
 	mkdir -p /app/zabbix
@@ -80,7 +81,7 @@ DBName=/data/zabbix/zabbix-proxy.db
 ```
 > vi /etc/init.d/zabbix_proxy
 ```shell
-	BASEDIR=/app/zabbix
+BASEDIR=/app/zabbix
 ```
 
 ### 安装Zabbix Client
