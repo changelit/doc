@@ -61,13 +61,17 @@ filebeat:
   prospectors:
     -
       paths:
-        - /var/log/*.log
+        - "/var/log/*.log"
+      fields:
+        server_name: server_name
+        file_type: json
+      fields_under_root: true
       input_type: log
       ignore_older: 10m
       document_type: log
       scan_frequency: 10s
       harvester_buffer_size: 16384
-      tail_files: true
+      tail_files: false
       backoff: 1s
       max_backoff: 10s
       backoff_factor: 2
@@ -85,11 +89,9 @@ output:
     enabled: true
     hosts: ["x.x.x.x:5044"]
     loadbalance: true
-    index: uat
+    index: index_name
 
 ############################# Shipper #########################################
-shipper:
-  name: {shipper_name}
 
 ```
 

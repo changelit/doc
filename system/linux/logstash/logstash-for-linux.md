@@ -77,11 +77,11 @@ input {
 }
 
 filter {
-  if [shipper] == "shipper_name" {
+  if [file_type] == "json" {
         json {
                 source => "message"
-                target => "new_doc"
-                remove_field => [ "line", "input_type","type","count","message" ]
+                target => "doc"
+                remove_field => [ "line", "input_type","count","message","beat","type"]
              }
    }
 }
