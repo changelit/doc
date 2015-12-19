@@ -3,7 +3,7 @@
 #### Logstash Debug mode
 
 * set indexer.conf as following 
-```json
+```
 output {
     stdout { codec => rubydebug { metadata => true } }
   }
@@ -33,6 +33,9 @@ output {
         "type" => "log"
 ```
 
+* what you should notice on logstash 
+. when you define fields on filebeat.yml ,you must not want to use "-", like server-abc ,it has a problem with search  
+
 #### Kibana 
 
 * search syntax
@@ -42,7 +45,9 @@ account_number:<100 AND balance:>47500
 
 * what is indexer ?
 
-> In the elasticsearch data directory , you can see tree like this "$elastic_data/$elastic_cluster/nodes/$node_number/indices/$indices"
-,so you should set index depend on the data in this directory in kibana web  
-> Anather one you should take care about ,Kibana has no access authorization ,so you should add base_auth in apache or nginx  
+. In the elasticsearch data directory , you can see tree like this "$elastic_data/$elastic_cluster/nodes/$node_number/indices/$indices"
+
+. so you should set index depend on the data in this directory in kibana web  
+
+. Anather one you should take care about ,Kibana has no access authorization ,so you should add base_auth in apache or nginx  
 
