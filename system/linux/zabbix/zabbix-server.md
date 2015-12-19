@@ -85,6 +85,7 @@
 ```
 
 * 修改zabbix 配置文件
+
 > vi /app/zabbix/etc/zabbix_server.conf
 ```shell
 	DBName=zabbix
@@ -104,7 +105,7 @@
 ```
 > vi /etc/init.d/zabbix_server
 ```shell
-	BASEDIR=/app/zabbix
+BASEDIR=/app/zabbix
 ```
 
 ### 安装web前端
