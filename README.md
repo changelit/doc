@@ -28,51 +28,49 @@
 
 ## 支付接口
 
- 
-* merchant_no: 商户编号
-* order_time: 请求时间
-* order_money: 订单金额,单位元
-* product_name: 商品名称
-* pay_type_id: 支付码,参考商户后台支付通道列表里面的支付码
-* order_no: 商户交易号（订单号）,商户自己平台的订单号
-* pay_ip: 提交IP地址
-* bank_code: 银行编码 "网银必须传,扫码可不传"
-* redirect_url: 前端跳转地址
-* notify_url: 异步通知地址
-* remark: 订单备注信息
-* sign: 签名（唯一不参与签名的字段,参考签名方法）
+```yml 
+"merchant_no": "商户号"
+"order_time": "请求时间"
+"order_money": "订单金额,单位元"
+"product_name": "商品名称"
+"pay_type_id": "支付码,参考商户后台支付通道列表里面的支付码"
+"order_no": "商户交易号（订单号）,商户自己平台的订单号"
+"pay_ip": "提交IP地址"
+"bank_code": "银行编码 "网银必须传,扫码可不传""
+"redirect_url": "前端跳转地址"
+"notify_url": "异步通知地址"
+"remark": "订单备注信息"
+"sign": "签名"
+
+```
 
 
 
 
 >数据返回
 
-```
-* returnCode: 状态码,0-成功,其他-失败
-* content: 返回数据,包含跳转地址
+```yml
+"returnCode": "0-成功,其他-失败"
+"content": "返回数据,包含跳转地址"
 ```
 
  
 
-##支付成功,异步通知
+## 异步通知
 
-* 提交,使用post提交
-* 接收,参考数据验签方法
 
-```bash
-返回参数: 
-merchant_no: 商户编号
-order_time: 请求时间
-order_money: 订单金额,单位元
-product_name: 商品名称
-pay_type_id:  支付码,参考平台后台支付类型管理的支付码
-order_no: 商户交易号（订单号）,商户自己平台的订单号
-platformNo: 平台订单号
-platformPayStatus: 参考下面 status状态说明
-platformPayTime: 成功支付的时间
-remark: 订单备注返回
-sign 签名（唯一不参与签名的字段,参考签名方法）
-```
+
+* merchant_no: 商户号
+* order_time: 请求时间
+* order_money: 订单金额,单位元
+* product_name: 商品名称
+* pay_type_id:  支付码,参考平台后台支付类型管理的支付码
+* order_no: 商户交易号（订单号）,商户自己平台的订单号
+* platformNo: 平台订单号
+* platformPayStatus: 参考下面 status状态说明
+* platformPayTime: 成功支付的时间
+* remark: 订单备注返回
+* sign 签名（唯一不参与签名的字段,参考签名方法）
 
  
 
