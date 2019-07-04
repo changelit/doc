@@ -50,7 +50,7 @@
 >数据返回
 
 ```yml
-"returnCode": "0-成功,其他-失败"
+"returnCode": "0==成功,其他==失败"
 "content": "返回数据,包含跳转地址"
 ```
 
@@ -59,54 +59,45 @@
 ## 异步通知
 
 
-
-* merchant_no: 商户号
-* order_time: 请求时间
-* order_money: 订单金额,单位元
-* product_name: 商品名称
-* pay_type_id:  支付码,参考平台后台支付类型管理的支付码
-* order_no: 商户交易号（订单号）,商户自己平台的订单号
-* platformNo: 平台订单号
-* platformPayStatus: 参考下面 status状态说明
-* platformPayTime: 成功支付的时间
-* remark: 订单备注返回
-* sign 签名（唯一不参与签名的字段,参考签名方法）
+```yml
+"merchant_no": "商户号"
+"order_time": "请求时间"
+"order_money": "订单金额,单位元"
+"product_name": "商品名称"
+"pay_type_id": " 支付码,参考平台后台支付类型管理的支付码"
+"order_no": "商户交易号（订单号）,商户自己平台的订单号"
+"platformNo": "平台订单号"
+"platformPayStatus": "参考下面 status状态说明"
+"platformPayTime": "成功支付的时间"
+"remark": "订单备注返回"
+"sign": "签名""
+```
 
  
 
  
 
 
-##订单查询接口
-
-
-> 网关地址: https://api.eazyfu.com/payment/orderQuery
+## 订单查询接口
 
 
 
-```bash
-请求参数: 
-merchant_no: 商户编号
-order_no: 商户交易号（订单号）,商户自己平台的订单号
-sign: 签名（唯一不参与签名的字段,参考签名方法）
+```yml
+"merchant_no": "商户编号"
+"order_no": "商户交易号（订单号）,商户自己平台的订单号"
+"sign": "签名"
 ```
 
 
-* 请求,参考签名方法
-* 提交,使用post提交
-* 接收,参考数据验签方法
-* 成功之后商户自己业务逻辑的处理
+>Return
+
+```yml
+"returnCode": "状态码,正常为0,1或其他为错误"
+"content": "返回的数据"
+"message": "returnCode不为0时返回错误描述"
+"sign": "签名"
 
 
-
-```bash
-返回参数: 
-returnCode: 状态码,正常为0,1或其他为错误
-content: 返回的数据
-message: returnCode不为0时返回错误描述
-sign: 签名（content中的所有数据参与验签,参考签名方法）
-
-returnCode 为0时,content中的数据
 content-->merchant_no: 商户编号
 content-->order_money: 订单金额,单位元
 content-->order_no: 商户交易号（订单号）,商户自己平台的订单号
