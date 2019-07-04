@@ -41,13 +41,12 @@
 "notify_url": "异步通知地址"
 "remark": "订单备注信息"
 "sign": "签名"
-
 ```
 
 
 
 
->数据返回
+>Return
 
 ```yml
 "returnCode": "0==成功,其他==失败"
@@ -97,201 +96,148 @@
 "message": "returnCode不为0时返回错误描述"
 "sign": "签名"
 
-
-content-->merchant_no: 商户编号
-content-->order_money: 订单金额,单位元
-content-->order_no: 商户交易号（订单号）,商户自己平台的订单号
-content-->platformNo: 平台订单号
-content-->platformPayStatus: 参考下面 status状态说明
-content-->sign 签名（唯一不参与签名的字段,参考签名方法）
+"content.merchant_no": "商户编号"
+"content.order_money": "订单金额,单位元"
+"content.order_no": "商户交易号（订单号）,商户自己平台的订单号"
+"content.platformNo": "平台订单号"
+"content.platformPayStatus": "参考下面 status状态说明"
+"content.sign": "签名"
 ```
 
 * status状态说明
 
-```bash
-ok => 提出申请
-success => 处理成功
-failed => 申请驳回
-waiting => 处理中
+```yml
+ok == 提出申请
+success == 处理成功
+failed == 申请驳回
+waiting == 处理中
 ```
 
 
-##代付申请接口
-
-
-> 网关地址: https://api.eazyfu.com/transfer/transferPay
+## 代付申请接口
 
 
 
 ```bash
-请求参数: 
-merchant_no: 商户编号
-payee_name: 收款人姓名
-payee_id_card: 收款人身份证
-phone_num: 电话号码
-payee_bank_card_no: 收款人银行卡号
-transfer_money: 代付订单金额,单位元
-transfer_id: 商户交易号（订单号）,商户自己平台的订单号
-bank_code: 银行编码
-bank_clear_no: 清算银行编码,默认与银行编码一致
-bank_type: 对私银行卡位0,对公银行看为1
-bank_branch_no: 支行编号,请百度查询相关支行行号
-bank_branch_name: 支行名称
-notify_url: 异步通知地址
-city: 银行卡默认所属市区
-province: 银行卡默认所属省分
-remark: 订单备注信息
-sign: 签名（唯一不参与签名的字段,参考签名方法）
+"merchant_no": "商户编号"
+"payee_name": "收款人姓名"
+"payee_id_card": "收款人身份证"
+"phone_num": "电话号码"
+"payee_bank_card_no": "收款人银行卡号"
+"transfer_money": "代付订单金额,单位元"
+"transfer_id": "商户交易号（订单号）,商户自己平台的订单号"
+"bank_code": "银行编码"
+"bank_clear_no": "清算银行编码,默认与银行编码一致"
+"bank_type": "对私银行卡位0,对公银行看为1"
+"bank_branch_no": "支行编号,请百度查询相关支行行号"
+"bank_branch_name": "支行名称"
+"notify_url": "异步通知地址"
+"city": "银行卡默认所属市区"
+"province": "银行卡默认所属省分"
+"remark": "订单备注信息"
+"sign": "签名"
 ```
 
 
-* 请求,参考签名方法
-* 提交,参考数据提交方式
 
+>Return
 
-```bash
-#返回参数
-returnCode: 状态码,0-成功,其他-失败
-message: 状态说明
+```yml
+"returnCode": 状态码,0==成功,其他==失败"
+"message": "状态说明"
 ```
 
 
 ##代付查询接口
 
 
-> 网关地址: https://api.eazyfu.com/transfer/transferQuery
-
-
-```bash
-请求参数: 
-merchant_no: 商户编号
-transfer_id: 商户交易号（订单号）,商户自己平台的订单号
-sign: 签名（唯一不参与签名的字段,参考签名方法）
+```yml
+"merchant_no": "商户号"
+"transfer_id": "商户交易号（订单号）,商户自己平台的订单号"
+"sign": "签名"
 ```
 
 
-* 请求,参考签名方法
-* 提交,使用post提交
-* 接收,参考数据验签方法
-* 成功之后商户自己业务逻辑的处理
 
 
+>Return
 
-```bash
-返回参数: 
-returnCode: 状态码,正常为0,1或其他错误
-message: returnCode不为0时返回错误状态说明
-content: 返回的数据
-sign: 签名（content中的所有数据参与验签,参考签名方法）
+```yml
+"returnCode": "状态码,正常为0,1或其他错误"
+"message": "returnCode不为0时返回错误状态说明"
+"content": "返回的数据"
+"sign": "签名"
 
-returnCode为0时,content中的数据
-content-->merchant_no: 商户编号
-content-->transfer_money: 订单金额,单位元
-content-->transfer_id: 商户交易号（订单号）,商户自己平台的订单号
-content-->message: 代付中文描述
-content-->platformNo: 平台订单号
-content-->platformProxyStatus: 查看status状态说明
-content-->sign 签名（唯一不参与签名的字段,参考签名方法）
+
+"content.merchant_no": "商户号"
+"content.transfer_money": "订单金额,单位元"
+"content.transfer_id": "商户交易号（订单号）,商户自己平台的订单号"
+"content.message": "代付中文描述"
+"content.platformNo": "平台订单号"
+"content.platformProxyStatus": "查看status状态说明"
+"content.sign" "签名"
 ```
 
 
 ##代付处理完成,异步通知结果
 
-```bash
-返回参数: 
-merchant_no: 商户编号
-transfer_money: 订单金额,单位元
-transfer_id: 商户交易号（订单号）,商户自己平台的订单号
-platformNo: 平台订单号
-platformProxyStatus: 查看status状态说明
-platformProxyedTime: 打款成功的时间
-remark: 订单备注返回
-sign 签名（唯一不参与签名的字段,参考签名方法）
+```yml
+"merchant_no": "商户号"
+"transfer_money": "订单金额,单位元"
+"transfer_id": "商户交易号（订单号）,商户自己平台的订单号"
+"platformNo": "平台订单号"
+"platformProxyStatus": "查看status状态说明"
+"platformProxyedTime": "打款成功的时间"
+"remark": "订单备注返回"
+"sign": "签名"
 ```
  
 
 
-* status状态说明
+##### status状态说明
 
-```bash
-ok => 提出申请
-success => 处理成功
-failed => 申请驳回
-waiting => 处理中
-```
-
-* 提交,post数据提交
-* 接收,参考数据验签方法
-* 返回, success 表示通知处理成功,其它表示失败
-
-
-
-##商户余额查询接口
-
-
-> 网关地址: https://api.eazyfu.com/transfer/queryBalance
-
-
-
-```bash
-请求参数: 
-merchant_no: 商户编号
-sign: 签名（唯一不参与签名的字段,参考签名方法）
+```yml
+ok == 提出申请
+success == 处理成功
+failed == 申请驳回
+waiting == 处理中
 ```
 
 
-* 请求,参考签名方法
-* 提交,使用post提交
-* 接收,参考数据验签方法
-* 成功之后商户自己业务逻辑的处理
 
-
-```bash
-返回参数: 
-returnCode: 状态码,正常为0,1或其他错误
-message: returnCode不为0时返回错误状态说明
-content: 返回的数据
-sign: 签名（content中的所有数据参与验签,参考签名方法）
-
-returnCode为0时,content中的数据
-content-->money: 可用金额,单位元
-content-->sign 签名（唯一不参与签名的字段,参考签名方法）
-```
 
 
 ##编码信息
 
-* 银行编码说明
+##### 银行列表
 
-```bash
-ICBC => 工商银行
-CCB => 建设银行
-ABC => 农业银行
-CMB => 招商银行
-BOCO=> 交通银行
-BOC => 中国银行
-CEB => 光大银行
-CMBC => 民生银行
-CIB => 兴业银行
-ECITIC => 中信银行
-CGB => 广发银行
-SPDB => 浦发银行
-BCCB => 北京银行
-PINGANBANK => 平安银行
-HXB => 华夏银行
-SHB => 上海银行
-POST => 邮储银行
-```
+* ICBC: 工商银行
+* CCB: 建设银行
+* ABC: 农业银行
+* CMB: 招商银行
+* BOC: 交通银行
+* BOC: 中国银行
+* CEB: 光大银行
+* CMBC: 民生银行
+* CIB: 兴业银行
+* ECITIC: 中信银行
+* CGB: 广发银行
+* SPDB: 浦发银行
+* BCCB: 北京银行
+* PINGANBANK: 平安银行
+* HXB: 华夏银行
+* SHB: 上海银行
+* POST: 邮储银行
 
 
 
-* 支付编码列表
 
-```bash
-快捷D0通道编码: 201
-网银D0通道编码: 101
-支付宝H5D0通道编码: 701H
-支付宝D0扫码通道编码: 701S
-微信H5D0通道编码: 801H
-微信D0扫码通道编码: 801S
-```
+#### 支付类型
+
+
+* 快捷D0通道编码: 201
+* 网银D0通道编码: 101
+* 支付宝H5D0通道编码: 701H
+* 支付宝D0扫码通道编码: 701S
+* 微信H5D0通道编码: 801H
+* 微信D0扫码通道编码: 801S
