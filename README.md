@@ -118,7 +118,7 @@ waiting == 处理中
 
 
 
-```bash
+```yml
 "merchant_no": "商户编号"
 "payee_name": "收款人姓名"
 "payee_id_card": "收款人身份证"
@@ -207,7 +207,7 @@ waiting == 处理中
 
 
 
-##编码信息
+## 编码信息
 
 ##### 银行列表
 
