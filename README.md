@@ -175,7 +175,7 @@ waiting == 处理中
 "content.message": "代付中文描述"
 "content.platformNo": "平台订单号"
 "content.platformProxyStatus": "查看status状态说明"
-"content.sign" "签名"
+"content.sign": "签名"
 ```
 
 
